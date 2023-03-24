@@ -14,9 +14,9 @@ class CreateOrderTable extends Migration
     public function up()
     {
         Schema::create('order', function (Blueprint $table) {
-            $table->foreign('order_id')->references('id')->on('order')->onDelete('cascade');
-            $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');
-            $table->integer('amount', 5);
+            $table->increments('id');
+            $table->float('valor');
+            $table->timestamp('date')->useCurrent();
         });
     }
 
@@ -28,6 +28,5 @@ class CreateOrderTable extends Migration
     public function down()
     {
         Schema::dropIfExists('order');
-        
     }
 }

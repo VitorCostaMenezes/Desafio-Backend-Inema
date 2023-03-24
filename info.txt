@@ -6,6 +6,9 @@ php artisan serve --port=9000
 
 
 
+criação de tabela de migration
+
+php artisan make:migration create_products_table
 
 
 

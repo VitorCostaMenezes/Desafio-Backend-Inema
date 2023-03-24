@@ -19,7 +19,7 @@ class CreateClientsTable extends Migration
             $table->string('email', 100);
             $table->string('telefone', 16);
             $table->foreign('adress_id')->references('id')->on('adress')->onDelete('cascade');
-            $table->timestamp();
+            $table->timestamp('date');
         });
     }
 

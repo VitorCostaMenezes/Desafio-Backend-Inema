@@ -53,7 +53,7 @@ header {
 
 /* navbar */
 #navbar img {
-  width: 40px;
+  width: 8rem;
 }
 
 #navbar {
@@ -241,3 +241,47 @@ footer {
 footer p {
   margin-bottom: 0;
 }
+
+.table-first {
+  width: 100px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+th{
+  border: 0px solid #ffffff;
+  color: #ffffff;
+  text-align: center;
+  font-family: Verdana, Arial, Helvetica;
+  font-size: 14px;
+  text-align: center;
+  background-color: #007cc2;
+ }
+ td {
+ border: 3px solid #ffffff;
+ color: #5d5d5d;
+ font-size: 14px;
+ font-weight: normal;
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ background-color: #efeeee;
+ text-align: center;
+ table-layout: fixed;
+ height: 100px;
+ transition: height 0.4s;
+ /*propriedade desejada*/
+   max-width: 100px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   transition: all ease 0.7s;
+ }
+
+ td:hover {
+     height: 200px;
+     max-width: 100px;
+     overflow: auto;
+     text-overflow: ellipsis;
+     white-space: initial;
+ }

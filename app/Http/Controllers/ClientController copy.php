@@ -51,12 +51,12 @@ class ClientController extends Controller
         foreach ($clients as $client) {
 
             $adress_cliente = Adress::findOrFail($client->id);
-            $client->adress = $adress_cliente;
-            // $client->rua = $adress_cliente->rua;
-            // $client->bairro = $adress_cliente->rua;
-            // $client->cidade= $adress_cliente->cidade;
-            // $client->numero = $adress_cliente->numero;
-            // $client->estado = $adress_cliente->estado;
+            $client->rua = $adress_cliente->rua;
+            $client->bairro = $adress_cliente->rua;
+            $client->cidade= $adress_cliente->cidade;
+            $client->numero = $adress_cliente->numero;
+            $client->estado = $adress_cliente->estado;
+
         }
 
 

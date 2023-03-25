@@ -14,7 +14,7 @@
     <table class="table ">
         <thead>
             <tr>
-                <th class="table-first" scope="col">#</th>
+                <th class="table-first-id" scope="col">#</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Descrição</th>
                 <th scope="col">Quantidade Disponivel</th>
@@ -25,7 +25,7 @@
         <tbody>
             @foreach($products as $product)
                 <tr>
-                    <td  class="table-first" >{{ $loop->index + 1 }}</td>
+                    <td  class="table-first-id" >{{ $loop->index + 1 }}</td>
 
                         <td>{{$product->name}}</td>
                         <td>{{$product->description}}</td>

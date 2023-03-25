@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-
 use App\Models\Adress;
 use App\Models\Client;
+use App\Models\Product;
+use App\Models\Order;
 
-class ClientController extends Controller
+use Illuminate\Http\Request;
+
+class OrderController extends Controller
 {
     public function create(Request $request) {
 
@@ -64,23 +65,21 @@ class ClientController extends Controller
     }
 
 
+    public function countOrders(){
 
-    // public function adressClient($id){
-
-    //     $adress_cliente = Adress::findOrFail($id);
-
-    //     // $event = Event::findOrFail($id);
+    }
 
 
+    public function show(){
 
-    //     return $adress_cliente;
-    // }
+        $clients = Client::all();
 
-        
+        $products = Product::all();
 
-        
-        
+        $orders = Order::all();
 
 
+        return view('orders.show', ['clients' => $clients, 'products' => $products, 'orders' => $orders]);
+    }
 
 }

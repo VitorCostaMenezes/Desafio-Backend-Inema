@@ -223,7 +223,7 @@ header {
 /* Edit page */
 
 .img-preview {
-  width: 100px;
+  width: 80px;
   margin-top: 20px;
 }
 
@@ -243,10 +243,14 @@ footer p {
 }
 
 .table-first {
-  width: 100px !important;
+  width: 10vw !important;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis !important;
   white-space: nowrap;
+}
+
+.table-first-id{
+  width: 20px !important;
 }
 
 
@@ -268,7 +272,7 @@ th{
  background-color: #efeeee;
  text-align: center;
  table-layout: fixed;
- height: 100px;
+ height: 80px;
  transition: height 0.4s;
  /*propriedade desejada*/
    max-width: 100px;
@@ -279,7 +283,7 @@ th{
  }
 
  td:hover {
-     height: 200px;
+     height: 150px;
      max-width: 100px;
      overflow: auto;
      text-overflow: ellipsis;

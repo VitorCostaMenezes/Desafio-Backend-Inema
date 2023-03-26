@@ -223,7 +223,7 @@ header {
 /* Edit page */
 
 .img-preview {
-  width: 100px;
+  width: 80px;
   margin-top: 20px;
 }
 
@@ -243,14 +243,18 @@ footer p {
 }
 
 .table-first {
-  width: 100px !important;
+  width: 10vw !important;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis !important;
   white-space: nowrap;
 }
 
+.table-first-id{
+  width: 20px !important;
+}
 
-th{
+
+th.celula-client{
   border: 0px solid #ffffff;
   color: #ffffff;
   text-align: center;
@@ -259,7 +263,7 @@ th{
   text-align: center;
   background-color: #007cc2;
  }
- td {
+ td.celula-client {
  border: 3px solid #ffffff;
  color: #5d5d5d;
  font-size: 14px;
@@ -268,7 +272,7 @@ th{
  background-color: #efeeee;
  text-align: center;
  table-layout: fixed;
- height: 100px;
+ height: 80px;
  transition: height 0.4s;
  /*propriedade desejada*/
    max-width: 100px;
@@ -278,10 +282,16 @@ th{
    transition: all ease 0.7s;
  }
 
- td:hover {
-     height: 200px;
+ td.celula-client:hover {
+     height: 150px;
      max-width: 100px;
      overflow: auto;
      text-overflow: ellipsis;
      white-space: initial;
  }
+
+
+
+ /* estilização do input de quantidade de produtos */
+
+ 

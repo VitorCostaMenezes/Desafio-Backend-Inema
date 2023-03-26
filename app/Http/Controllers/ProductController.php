@@ -10,27 +10,27 @@ use App\Models\Product;
 class ProductController extends Controller
 {
 
-    public function create(Request $request) {
+    public function create() {
+        return view('products.create');
+    }
 
-       
 
+    public function store(Request $request) {
+
+        
         $products = new Product;
 
-        $products->name = $request->nome;
-        $products->amount = $request->quantidade;
+        $products->name = $request->name;
+        $products->amount = $request->amount;
         $products->valor = $request->valor;
         $products->description = $request->description;
 
         if($request->hasFile('image') && $request->file('image')->isValid()) {
 
             $requestImage = $request->image;
-
             $extension = $requestImage->extension();
-
             $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
-
             $requestImage->move(public_path('img/products'), $imageName);
-
             $products->image = $imageName;
 
         }else {
@@ -38,8 +38,9 @@ class ProductController extends Controller
 
         }
 
-        $products->save();
-
+            $products->save();
+        
+        
 
         return redirect('/')->with('msg', 'Produto cadastrado com sucesso!');
 
@@ -47,25 +48,23 @@ class ProductController extends Controller
 
 
 
+    // public function create(Request $request) {
+
+    //     DB::beginTransaction();
+
+    //         $client = Client::create($request->all());
+    //         $client->adress()->create($request->all());
+
+    //     DB::commit();
+
+    //     return redirect('/')->with('msg', 'Cliente cadastrado com sucesso!');
+
+    // }
+
+
     public function index(){
 
         $products= Product::all();
-        // $clients = Client::with('adresses')->get();
-        // $clients = Client::with('adresses')->all();
-
-        // $event = Event::findOrFail($id);
-        // foreach ($clients as $client) {
-
-        //     $adress_cliente = Adress::findOrFail($client->id);
-        //     $client->rua = $adress_cliente->rua;
-        //     $client->bairro = $adress_cliente->rua;
-        //     $client->cidade= $adress_cliente->cidade;
-        //     $client->numero = $adress_cliente->numero;
-        //     $client->estado = $adress_cliente->estado;
-
-        // }
-
-
         return view('products.show', ['products' => $products]);
     }
     //

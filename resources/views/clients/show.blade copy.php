@@ -30,11 +30,11 @@
                     <td class="table-first">{{$client->email }}</td>
                     {{-- <td>{{$client->rua }}</td> --}}
                     <td >
-                        {{$client->adress->rua }},nº 
-                        {{$client->adress->numero }}, 
-                        {{$client->adress->bairro}}, 
-                        {{$client->adress->cidade }}-
-                        {{$client->adress->estado }} 
+                        {{$client->rua }},nº 
+                        {{$client->numero }}, 
+                        {{$client->bairro}}, 
+                        {{$client->cidade }}-
+                        {{$client->estado }} 
                     </td>
                    
                 </tr>

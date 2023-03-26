@@ -14,7 +14,12 @@
 
         <!-- CSS da aplicação -->
         <link rel="stylesheet" href="/css/styles.css">
-        <script src="/js/scripts.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js" 
+                integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" 
+                crossorigin="anonymous">
+        </script>
+        <script src="{{ asset('js/app.js') }}"></script>
+        {{-- <script src="/js/scripts.js"></script> --}}
     </head>
     <body>
       <header>
@@ -87,3 +92,8 @@
       <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
     </body>
 </html>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>

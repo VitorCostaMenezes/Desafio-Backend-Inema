@@ -10,4 +10,10 @@ class Product extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    protected $products = [];
+
+    public function relations() {
+        return $this->hasMany(Relation::class);
+    }
 }

@@ -254,7 +254,7 @@ footer p {
 }
 
 
-th{
+th.celula-client{
   border: 0px solid #ffffff;
   color: #ffffff;
   text-align: center;
@@ -263,7 +263,7 @@ th{
   text-align: center;
   background-color: #007cc2;
  }
- td {
+ td.celula-client {
  border: 3px solid #ffffff;
  color: #5d5d5d;
  font-size: 14px;
@@ -282,10 +282,16 @@ th{
    transition: all ease 0.7s;
  }
 
- td:hover {
+ td.celula-client:hover {
      height: 150px;
      max-width: 100px;
      overflow: auto;
      text-overflow: ellipsis;
      white-space: initial;
  }
+
+
+
+ /* estilização do input de quantidade de produtos */
+
+ 

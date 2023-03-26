@@ -14,6 +14,15 @@ class Adress extends Model
 
     protected $products = [];
 
+    protected $fillable = [
+        'rua', 
+        'bairro',
+        'cidade',
+        'numero',
+        'estado',
+        'client_id'
+    ];
+
     // public function client() {
     //     return $this->hasMany('App\Models\Client');
     // }

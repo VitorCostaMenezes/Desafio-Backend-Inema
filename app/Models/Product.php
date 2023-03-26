@@ -12,4 +12,8 @@ class Product extends Model
     public $timestamps = false;
 
     protected $products = [];
+
+    public function relations() {
+        return $this->hasMany(Relation::class);
+    }
 }

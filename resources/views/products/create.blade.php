@@ -9,10 +9,9 @@
   <form action="/save_product" method="POST" enctype="multipart/form-data">
     @csrf
    
-    <h5 class="mb-2 mt-4">Informações pessoais:</h5>
     <div class="form-group">
       <label for="nome">Nome:</label>
-      <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do cliente..." required>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Nome do produto..." required>
     </div>
 
     <div class="form-group">
@@ -22,7 +21,7 @@
 
     <div class="form-group">
       <label for="nome">Quantidade:</label>
-      <input type="number" class="form-control" id="quantidade" name="quantidade" placeholder="Quantidade do produto disponivel..." required>
+      <input type="number" class="form-control" id="amount" name="amount" placeholder="Quantidade do produto disponivel..." required>
     </div>
 
     <div class="form-group">

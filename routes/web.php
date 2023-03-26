@@ -51,10 +51,11 @@ Route::get('/new_client', function () {
 
 
 Route::get('/list_products', [ProductController::class, 'index']);
-Route::post('/save_product', [ProductController::class, 'create']);
-Route::get('/new_product', function () {
-    return view('/products/create');
-});
+Route::post('/save_product', [ProductController::class, 'store']);
+Route::get('/new_product', [ProductController::class, 'create']);
+// Route::get('/new_product', function () {
+//     return view('/products/create');
+// });
 
 
 
@@ -63,7 +64,8 @@ Route::get('/new_product', function () {
 Route::get('/new_order', [OrderController::class, 'show']);
 
 Route::get('/list_order', [OrderController::class, 'index']);
-Route::post('/save_order', [OrdertController::class, 'create']);
+
+Route::post('/save_order', [OrderController::class, 'create']);
 // Route::post('/save_order', [ProductController::class, 'create']);
 // Route::get('/new_order', function () {
 //     return view('/products/create');

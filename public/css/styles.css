@@ -320,4 +320,8 @@ th.celula-client{
 
  /* estilização do input de quantidade de produtos */
 
- 
+ .card:hover{
+	-xpedu-transform: scale(1.01);
+	-ms-transform: scale(1.01);
+	transform: scale(1.01);
+}

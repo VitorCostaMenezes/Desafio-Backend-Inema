@@ -34,27 +34,25 @@
                 <a href="/" class="nav-link">Home</a>
               </li>
               <li class="nav-item">
-                <a href="/new_client" class="nav-link">Add Clientes </a>
+                <a href="/new_client" class="nav-link">Adicionar Clientes</a>
               </li>
               <li class="nav-item">
                 <a href="/list_clients" class="nav-link">Listar Clientes</a>
               </li>
               {{-- @auth --}}
-
-              <li class="nav-item">
-                <a href="/new_product" class="nav-link">Add Produtos</a>
-              </li>
-              <li class="nav-item">
-                <a href="/list_products" class="nav-link">Listar Produtos</a>
-              </li>
               
               <li class="nav-item">
-                <a href="/new_order" class="nav-link">Add Pedidos</a>
+                <a href="/new_order" class="nav-link">Adicionar Pedidos</a>
               </li>
               <li class="nav-item">
                 <a href="/list_orders" class="nav-link">Listar Pedidos</a>
               </li>
-              
+              <li class="nav-item">
+                <a href="/new_product" class="nav-link">Adicionar Produtos</a>
+              </li>
+              <li class="nav-item">
+                <a href="/list_products" class="nav-link">Listar Produtos</a>
+              </li>
               {{-- <li class="nav-item">
                 <form action="/logout" method="POST">
                   @csrf
@@ -93,7 +91,7 @@
         </div>
       </main>
       <footer>
-        <p>Desafio Backend Inema &copy; 2023</p>
+        <p>HDC Events &copy; 2020</p>
       </footer>
       <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
     </body>

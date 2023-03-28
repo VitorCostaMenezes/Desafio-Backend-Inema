@@ -10,8 +10,13 @@
 <div class="col-md-10 offset-md-1 dashboard-events-container">
     @if(count($products) > 0)
     <div class="table-responsive">
+        <h5>Busque um Produto</h5>
+        <form action="/list_products" method="GET">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Procurar...">
+            <input type="submit" class="btn btn-button btn-block btn-primary mt-2"  value="Atualizar">
+        </form>
 
-    <table class="table table-hover">
+    <table class="table table-hover  mt-4 mb-5">
         <thead>
             <tr>
                 <th class="table-first-id" scope="col">#</th>
@@ -65,7 +70,7 @@
 </div>
 
     @else
-    <p>Você não tem produtos cadastrados, <a class="btn btn-button btn-sm btn-primary ml-2" href="/new_product">Adicionar Produtos</a></p>
+        <p>Você não tem produtos cadastrados, <a class="btn btn-button btn-sm btn-primary ml-2" href="/new_product">Adicionar Produtos</a></p>
     @endif
 
    

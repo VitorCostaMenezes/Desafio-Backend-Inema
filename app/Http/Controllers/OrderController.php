@@ -73,15 +73,36 @@ class OrderController extends Controller
 
         DB::commit();
 
-        return redirect('/orders/show')->with('msg', 'Pedido gerado com sucesso!');
+        return redirect('/new_order')->with('msg', 'Pedido gerado com sucesso!');
 
     }
 
 
-    public function show(){
-        $orders = Order::all();
+    // public function show(){
+    //     $orders = Order::all();
 
-        return view('orders.show', ['orders' => $orders]);
+    //     return view('orders.show', ['orders' => $orders]);
+
+    // }
+
+    public function show() {
+
+        $search = request('search');
+
+        if($search) {
+
+            // $client = Client::where([['name', 'like', '%'.$search.'%']])->get();
+            $client = Client::where([['name', 'like', '%'.$search.'%']])->get();
+
+            $orders = Order::where([
+                ['client_id', $client[0]->id]
+            ])->get();
+
+        } else {
+            $orders = Order::all();
+        }        
+    
+        return view('orders.show',['orders' => $orders, 'search' => $search]);
 
     }
 
@@ -90,13 +111,8 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
 
         return view('orders.order', ['order' => $order ]);
-
-
         
     }
     
-
-
-
 
 }

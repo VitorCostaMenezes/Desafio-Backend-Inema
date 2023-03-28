@@ -16,7 +16,7 @@
 
     <div class="form-group">
       <label for="image">Imagem do Produto:</label>
-      <input type="file" id="image" name="image" class="from-control-file">
+      <input type="file" id="image" name="image" class="from-control-file" required>
     </div>
 
     <div class="form-group">

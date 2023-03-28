@@ -15,7 +15,6 @@
       <label for="amount">Quantidade disponivel atualmente:</label>
       <input type="number"  class="form-control " min="1" id="amount" name="amount" placeholder="Nome do cliente..." required value="{{ $product->amount }}">
     </div>
-
   
     <div class="form-group ml-3">
         <input type="submit" class="btn btn-primary  mt-2" value="Atualizar Estoque">

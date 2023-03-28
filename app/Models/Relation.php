@@ -10,9 +10,6 @@ class Relation extends Model
     use HasFactory;
     public $timestamps = false;
     protected $dates = ['date'];
-
-
-
     protected $fillable = [
         'order_id ', 
         'product_id',

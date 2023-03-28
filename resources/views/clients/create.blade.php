@@ -8,10 +8,6 @@
   <h1>Adicionar Cliente</h1>
   <form action="/save_client" method="POST" enctype="multipart/form-data">
     @csrf
-    {{-- <div class="form-group">
-      <label for="image">Imagem do Evento:</label>
-      <input type="file" id="image" name="image" class="from-control-file">
-    </div> --}}
     <h5 class="mb-2 mt-4">Informações pessoais:</h5>
     <div class="form-group">
       <label for="nome">Nome:</label>
@@ -25,9 +21,7 @@
         <label for="phone">Telefone:</label>
         <input type="phone" class="form-control" id="telefone" name="telefone" placeholder="Ex: 00 999880-7766" required>
       </div>
-
       <h5 class="mb-2 mt-4">Endereço:</h5>
-
       <div class="form-group">
         <label for="nome">Rua:</label>
         <input type="text" class="form-control" id="rua" name="rua" placeholder="Ex: Rua Fulano de tal..." required>

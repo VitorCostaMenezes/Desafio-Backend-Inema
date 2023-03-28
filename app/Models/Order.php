@@ -10,6 +10,9 @@ class Order extends Model
     use HasFactory;
     public $timestamps = false;
 
+    protected $dates = ['date'];
+
+
 
     // const CREATED_AT = '';
     // const UPDATED_AT = '';

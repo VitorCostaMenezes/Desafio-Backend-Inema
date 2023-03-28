@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\Product;
 
+use Illuminate\Support\Facades\DB;
+
+
 
 class ProductController extends Controller
 {
@@ -39,33 +42,44 @@ class ProductController extends Controller
         }
 
             $products->save();
-        
-        
 
         return redirect('/')->with('msg', 'Produto cadastrado com sucesso!');
 
     }
 
 
-
-    // public function create(Request $request) {
-
-    //     DB::beginTransaction();
-
-    //         $client = Client::create($request->all());
-    //         $client->adress()->create($request->all());
-
-    //     DB::commit();
-
-    //     return redirect('/')->with('msg', 'Cliente cadastrado com sucesso!');
-
-    // }
-
-
-    public function index(){
-
+    public function show(){
         $products= Product::all();
         return view('products.show', ['products' => $products]);
     }
-    //
+
+
+    public function edit($id) {
+
+        $product = Product::findOrFail($id);
+    //     return redirect('/list_clients')->with('msg', 'Cliente editado com sucesso!');
+
+
+        return view('products.edit', ['product' => $product]);
+    }
+
+
+
+    public function update(Request $request) {
+
+        $data = $request->all();
+
+        DB::beginTransaction();
+
+            if($request->amount > 0 ) {
+                $product = Product::findOrFail($request->id)->update($data);
+                return redirect('/list_products')->with('msg', 'Estoque atualizado com sucesso!');
+            }else{
+                return redirect('/list_products')->with('msg-danger', 'O estoque não foi atualizado!');
+            }
+
+        DB::commit();
+
+    }
+    
 }

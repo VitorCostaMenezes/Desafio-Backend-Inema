@@ -22,20 +22,31 @@ header {
   padding: 0;
 }
 
-.btn-primary {
+/* .btn-primary {
   background-color: #F2A340;
   border: 2px solid #C28008;
-}
+} */
 
 .btn-primary:hover {
   background-color: #C28008;
   border-color: #C28008;
+  color: #000000;
 }
 
 .msg {
   background-color: #D4EDDA;
   color: #155724;
   border: 1px solid #C3E6CB;
+  width: 100%;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 10px;
+}
+
+.msg-danger {
+  background-color: #ffc107;
+  color: #155724;
+  border: 1px solid #ffc107;
   width: 100%;
   margin-bottom: 0;
   text-align: center;
@@ -251,6 +262,21 @@ footer p {
 
 .table-first-id{
   width: 20px !important;
+}
+.table-date{
+  width: 100px !important;
+}
+
+.table-quant{
+  width: 150px !important;
+}
+
+.table-image{
+  width: 100px !important;
+}
+
+.table-alter{
+  width: 105px !important;
 }
 
 

@@ -42,7 +42,7 @@
     </div>
     <div class="form-group">
       <label for="title">Cidade:</label>
-      <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Local do evento" required>
+      <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Ciadade em que reside" required>
     </div>
     <div class="form-group">
         <label for="title">Estado:</label>

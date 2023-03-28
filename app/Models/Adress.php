@@ -11,6 +11,8 @@ class Adress extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $dates = ['date'];
+
 
     protected $products = [];
 

@@ -18,6 +18,7 @@
                 integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" 
                 crossorigin="anonymous">
         </script>
+        
         <script src="{{ asset('js/app.js') }}"></script>
         {{-- <script src="/js/scripts.js"></script> --}}
     </head>
@@ -81,6 +82,9 @@
           <div class="row">
             @if(session('msg'))
               <p class="msg">{{ session('msg') }}</p>
+            @endif
+            @if(session('msg-danger'))
+              <p class="msg-danger">{{ session('msg-danger') }}</p>
             @endif
             @yield('content')
           </div>

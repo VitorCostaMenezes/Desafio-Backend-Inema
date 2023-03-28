@@ -27,16 +27,35 @@ class ClientController extends Controller
 
         DB::commit();
 
-        return redirect('/')->with('msg', 'Cliente cadastrado com sucesso!');
+        return redirect('/list_clients')->with('msg', 'Cliente cadastrado com sucesso!');
 
     }
 
 
 
-    public function show(){
+    // public function show(){
 
-        $clients = Client::all();
-        return view('clients.show', ['clients' => $clients]);
+    //     $clients = Client::all();
+    //     return view('clients.show', ['clients' => $clients]);
+    // }
+
+
+    public function show() {
+
+        $search = request('search');
+
+        if($search) {
+
+            $clients = Client::where([
+                ['name', 'like', '%'.$search.'%']
+            ])->get();
+
+        } else {
+            $clients = Client::all();
+        }        
+    
+        return view('clients.show',['clients' => $clients, 'search' => $search]);
+
     }
 
 

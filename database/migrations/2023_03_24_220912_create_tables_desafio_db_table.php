@@ -49,7 +49,7 @@ class CreateTablesDesafioDbTable extends Migration
             $table->foreignId('client_id')->references('id')->on('clients');
         });
 
-        Schema::create('order_products', function (Blueprint $table) {
+        Schema::create('relations', function (Blueprint $table) {
             $table->foreignId('order_id')->references('id')->on('orders');
             $table->foreignId('product_id')->references('id')->on('products');
             $table->integer('amount');
@@ -64,12 +64,12 @@ class CreateTablesDesafioDbTable extends Migration
     public function down()
     {
 
-        Schema::table('order_products', function (Blueprint $table) {
+        Schema::table('relations', function (Blueprint $table) {
             $table->dropForeign(['product_id']);
             $table->dropForeign(['order_id']);
         });
         
-        Schema::dropIfExists('order_products');
+        Schema::dropIfExists('relations');
 
         Schema::dropIfExists('products');
 

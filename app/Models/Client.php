@@ -13,6 +13,9 @@ class Client extends Model
     use HasFactory;
 
     public $timestamps = false;
+    
+    protected $dates = ['date'];
+
 
     protected $fillable = [
         'name', 

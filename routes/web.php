@@ -40,19 +40,27 @@ Route::get('/', function () {
 // Route::post('/events', [EventController::class, 'store']);
 
 
-Route::get('/list_clients', [ClientController::class, 'index']);
-Route::post('/save_client', [ClientController::class, 'create']);
-Route::get('/new_client', function () {
-    return view('/clients/create');
-});
+// Route::get('/list_clients', [ClientController::class, 'index']);
+// Route::post('/save_client', [ClientController::class, 'create']);
+// Route::get('/new_client', function () {
+//     return view('/clients/create');
+// });
+
+
+Route::get('/list_clients', [ClientController::class, 'show']);
+Route::post('/save_client', [ClientController::class, 'store']);
+Route::get('/new_client', [ClientController::class, 'create']);
+Route::get('/client/edit/{id}', [ClientController::class, 'edit']);
+Route::put('/clients/update/{id}', [ClientController::class, 'update']);
 
 
 
-
-
-Route::get('/list_products', [ProductController::class, 'index']);
+Route::get('/list_products', [ProductController::class, 'show']);
 Route::post('/save_product', [ProductController::class, 'store']);
 Route::get('/new_product', [ProductController::class, 'create']);
+
+Route::get('/estoque/edit/{id}', [ProductController::class, 'edit']);
+Route::put('/estoque/update/{id}', [ProductController::class, 'update']);
 // Route::get('/new_product', function () {
 //     return view('/products/create');
 // });
@@ -60,12 +68,27 @@ Route::get('/new_product', [ProductController::class, 'create']);
 
 
 
+Route::get('/order/{id}', [OrderController::class, 'order']);
 
-Route::get('/new_order', [OrderController::class, 'show']);
 
-Route::get('/list_order', [OrderController::class, 'index']);
+// Route::get('/new_order', [OrderController::class, 'create']);
 
-Route::post('/save_order', [OrderController::class, 'create']);
+Route::get('/list_orders', [OrderController::class, 'show']);
+Route::get('/new_order', [OrderController::class, 'create']);
+Route::post('/save_order', [OrderController::class, 'store']);
+
+
+
+
+
+
+// Route::get('/new_order', [OrderController::class, 'show']);
+
+// Route::get('/list_order', [OrderController::class, 'index']);
+
+// Route::post('/save_order', [OrderController::class, 'create']);
+
+
 // Route::post('/save_order', [ProductController::class, 'create']);
 // Route::get('/new_order', function () {
 //     return view('/products/create');

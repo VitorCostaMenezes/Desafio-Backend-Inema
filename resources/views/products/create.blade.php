@@ -26,7 +26,8 @@
 
     <div class="form-group">
       <label for="nome">Valor:</label>
-      <input type="number" step="0.01" class="form-control" id="valor" name="valor" min="0.01" placeholder=" R$ Valor do produto..." required>
+      <input type="number" step="0.01" class="form-control" id="valor" name="valor" min="0.01" 
+              placeholder=" Digite o valor do produto sem os centavos. Ex: 1000 / 341 / 9999" required>
     </div>
 
     <div class="form-group">

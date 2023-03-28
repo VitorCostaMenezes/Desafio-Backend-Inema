@@ -24,6 +24,8 @@
 
   <form action="/save_order" method="POST" enctype="multipart/form-data">
     @csrf
+    @if(count($products) > 0)
+
    
     <div class="form-group col-md-4 offset-md-1">
       <label for="title">Cliente:</label>
@@ -41,7 +43,6 @@
   </div>
 
   <div class="col-md-10 offset-md-1 dashboard-events-container">
-    @if(count($products) > 0)
     <div class="table-responsive">
 
     <table class="table table-hover">
@@ -71,41 +72,17 @@
 
 
                         <td>{{$product->name}}</td>
-                        {{-- <input type="hidden" name="product_id[]"  value="{{$product->id}}"> --}}
-                        {{-- <td>{{$product->name}}</td> --}}
-                        {{-- <td>{{$product->description}}</td> --}}
-                        {{-- <td>{{$product->amount}}</td> --}}
-
-
 
                         <td>{{$product->amount}}</td>
-                        {{-- <td>
-                          <input disabled type="text" id="quantidade" value="{{$product->amount}}">
-                        </td> --}}
-                        {{-- <td>
-                          <input type="text" class="preco-produto" name="preco[]"  value="{{$product->valor}}">
 
-                        </td> --}}
-                        {{-- <td>{{ $product->valor}}</td> --}}
                         <td>
                           {{number_format(substr_replace($product->valor, '.', 12, 0),2,",",".")}}
                         </td>
-                        {{-- <input type="hidden" name="valor[]"  value="{{$product->valor}}"> --}}
-
-                        {{-- <td  class="table-first">
-                            <img src="/img/products/{{ $product->image }}" class="img-fluid" alt="{{ $product->nome }}">
-                        </td> --}}
-                    {{-- <td>{{$client->rua }}</td> --}}
 
                     <td>
                       <input disabled type="number"  class="check" id="amount-product{{$product->id}}" min=1 max="{{$product->amount}}" name="amount[]" value="1" >
                       
                     </td>
-
-                    {{-- <td>
-                        <P id="#total"></P>
-                    </td> --}}
-
 
                       </tr>
                       @endif
@@ -115,10 +92,16 @@
       </div>
 
       <div id="total"></div>
+
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary mt-4" value="Gerar Pedido">
+      </div>
+
       @else
-      <p>Você ainda não tem produtos cadatsrados, <a href="/products/create">Adcionar Produtos</a></p>
+        <p class="mt-5">Não existem produtos cadastrados para gerar um pedido. <a class="btn btn-button btn-sm btn-primary ml-2" href="/new_product">Adicionar Produtos</a></p>
       @endif
 
+ 
 
     
 
@@ -126,9 +109,7 @@
 
     
     
-    <div class="form-group">
-        <input type="submit" class="btn btn-primary mt-4" value="Gerar Pedido">
-    </div>
+ 
 
   </form>
 

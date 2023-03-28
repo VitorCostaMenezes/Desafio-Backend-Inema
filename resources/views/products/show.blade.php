@@ -65,8 +65,13 @@
 </div>
 
     @else
-    <p>Você não tem produtos cadastrados, <a href="/products/create">Cadastrar Produtos</a></p>
+    <p>Você não tem produtos cadastrados, <a class="btn btn-button btn-sm btn-primary ml-2" href="/new_product">Adicionar Produtos</a></p>
     @endif
+
+   
+
+
+
 </div>
 
 

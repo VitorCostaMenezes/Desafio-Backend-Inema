@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="col-md-10 offset-md-1 dashboard-title-container">
-    <h1>Clientes cadastrados</h1>
+    <h1>Clientes Cadastrados</h1>
 </div>
 <div class="col-md-10 offset-md-1 dashboard-events-container">
     @if(count($clients) > 0)
@@ -55,7 +55,7 @@
 </div>
 
     @else
-    <p>Você ainda não tem eventos, <a href="/events/create">criar evento</a></p>
+    <p>Você não tem clientes cadastrados:<a class="btn btn-button btn-sm btn-primary ml-2"href="/new_client">Adicionar Clientes</a></p>
     @endif
 </div>
 

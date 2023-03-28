@@ -10,7 +10,10 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'amount'
+        'name',
+        'image',
+        'amount',
+        'valor'
     ];
 
     public $timestamps = false;

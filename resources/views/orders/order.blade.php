@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Dasboard')
+@section('title', 'Detalhes do Pedido')
 
 @section('content')
 
@@ -38,9 +38,7 @@
 <span class="font-weight-bold"> Nº: </span><span class="text-secondary font-italic ">R$ {{number_format(substr_replace($order->valor, '.', 12, 0),2,",",".")}}</span><br>
 </p>
 
-
 <h4>Produtos:</h4>
-
 
     <table class="table table-hover ml-3 mt-4 mb-5">
         <thead>
@@ -55,72 +53,25 @@
         </thead>
         <tbody>
   
-          {{-- @foreach($orders as $order) --}}
-
-
             @foreach($order->relations as $relation)
                 <tr>
-                    <td  class="table-first-id" >{{ $loop->index + 1 }}</td>
-
-
-                    <td>{{$relation->product->name}}</td>
-                    <td>{{$relation->product->description}}</td>
-                    <td>{{$relation->amount}} un.</td>
-                    <td>R${{number_format(substr_replace($relation->product->valor, '.', 12, 0),2,",",".")}} </td>
-                    
+                    <td  class="table-first-id celula-order" >{{ $loop->index + 1 }}</td>
+                    <td class="celula-order">{{$relation->product->name}}</td>
+                    <td class="celula-order">{{$relation->product->description}}</td>
+                    <td class="">{{$relation->amount}} un.</td>
+                    <td class="">R${{number_format(substr_replace($relation->product->valor, '.', 12, 0),2,",",".")}} </td>
                     <td class="table-image">
-                    <abbr title="Clique para visualizar.">
-
-                        <a href="/img/products/{{ $relation->product->image }}" >
-                            <img src="/img/products/{{ $relation->product->image }}" class="img-fluid" alt="{{$relation->product->name}}">
-                        </a>
-                    </abbr>
+                        <abbr title="Clique para visualizar.">
+                            <a href="/img/products/{{ $relation->product->image }}" >
+                                <img src="/img/products/{{ $relation->product->image }}" class="img-fluid" alt="{{$relation->product->name}}">
+                            </a>
+                        </abbr>
                     </td>
-                         
-                </tr>
-                @endforeach    
-
-  
-        </tbody>
-      </table>
-      
-    {{-- @if(count($clients) > 0)
-    <div class="table-responsive">
-
-    <table class="table center">
-        <thead>
-            <tr>
-                <th class="table-first-id"  width="20px;" scope="col">#</th>
-                <th class="table-first" scope="col">Nome</th>
-                <th class="table-first" scope="col">Telefone</th>
-                <th class="table-first" scope="col">Email</th>
-                <th class="table-adress"  scope="col">Endereço</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($clients as $client)
-                <tr>
-                    <td class="table-first-id" scope="row">{{ $loop->index + 1 }}</td>
-                    <td class="table-first">{{$client->name }}</td>
-                    <td class="table-first">{{$client->telefone }}</td>
-                    <td class="table-first">{{$client->email }}</td>
-                    <td >
-                        {{$client->adress->rua }},nº 
-                        {{$client->adress->numero }}, 
-                        {{$client->adress->bairro}}, 
-                        {{$client->adress->cidade }}-
-                        {{$client->adress->estado }} 
-                    </td>
-                   
                 </tr>
             @endforeach    
         </tbody>
-    </table>
-</div>
-
-    @else
-    <p>Você ainda não tem eventos, <a href="/events/create">criar evento</a></p>
-    @endif --}}
+      </table>
+      
 </div>
 
 

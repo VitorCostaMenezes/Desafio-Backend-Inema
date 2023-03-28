@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Product;
 
-use Illuminate\Support\Facades\DB;
 
 
 
@@ -17,10 +17,8 @@ class ProductController extends Controller
         return view('products.create');
     }
 
-
     public function store(Request $request) {
 
-        
         $products = new Product;
 
         $products->name = $request->name;
@@ -48,21 +46,14 @@ class ProductController extends Controller
     }
 
 
-    // public function show(){
-    //     $products = Product::all();
-    //     return view('products.show', ['products' => $products]);
-    // }
-
     public function show() {
 
         $search = request('search');
 
         if($search) {
-
             $products = Product::where([
                 ['name', 'like', '%'.$search.'%']
             ])->get();
-
         } else {
             $products = Product::all();
         }        
@@ -73,14 +64,9 @@ class ProductController extends Controller
 
 
     public function edit($id) {
-
         $product = Product::findOrFail($id);
-    //     return redirect('/list_clients')->with('msg', 'Cliente editado com sucesso!');
-
-
         return view('products.edit', ['product' => $product]);
     }
-
 
 
     public function update(Request $request) {
@@ -88,14 +74,12 @@ class ProductController extends Controller
         $data = $request->all();
 
         DB::beginTransaction();
-
             if($request->amount > 0 ) {
                 $product = Product::findOrFail($request->id)->update($data);
                 return redirect('/list_products')->with('msg', 'Estoque atualizado com sucesso!');
             }else{
                 return redirect('/list_products')->with('msg-danger', 'O estoque não foi atualizado!');
             }
-
         DB::commit();
 
     }

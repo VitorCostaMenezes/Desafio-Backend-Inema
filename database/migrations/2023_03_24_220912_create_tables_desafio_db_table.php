@@ -22,8 +22,6 @@ class CreateTablesDesafioDbTable extends Migration
             $table->text('description', 200);
         });
 
-
-
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);

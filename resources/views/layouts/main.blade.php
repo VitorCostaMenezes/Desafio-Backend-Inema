@@ -18,9 +18,8 @@
                 integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" 
                 crossorigin="anonymous">
         </script>
-        
         <script src="{{ asset('js/app.js') }}"></script>
-        {{-- <script src="/js/scripts.js"></script> --}}
+
     </head>
     <body>
       <header>
@@ -39,8 +38,6 @@
               <li class="nav-item">
                 <a href="/list_clients" class="nav-link">Listar Clientes</a>
               </li>
-              {{-- @auth --}}
-
               <li class="nav-item">
                 <a href="/new_product" class="nav-link">Add Produtos</a>
               </li>
@@ -54,27 +51,6 @@
               <li class="nav-item">
                 <a href="/list_orders" class="nav-link">Listar Pedidos</a>
               </li>
-              
-              {{-- <li class="nav-item">
-                <form action="/logout" method="POST">
-                  @csrf
-                  <a href="/logout" 
-                    class="nav-link" 
-                    onclick="event.preventDefault();
-                    this.closest('form').submit();">
-                    Sair
-                  </a>
-                </form>
-              </li> --}}
-              {{-- @endauth --}}
-              {{-- @guest
-              <li class="nav-item">
-                <a href="/login" class="nav-link">Entrar</a>
-              </li>
-              <li class="nav-item">
-                <a href="/register" class="nav-link">Cadastrar</a>
-              </li>
-              @endguest --}}
             </ul>
           </div>
         </nav>
@@ -98,8 +74,5 @@
       <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
     </body>
 </html>
-
-
-
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>

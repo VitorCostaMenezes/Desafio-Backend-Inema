@@ -12,10 +12,7 @@ class Adress extends Model
 
     public $timestamps = false;
     protected $dates = ['date'];
-
-
     protected $products = [];
-
     protected $fillable = [
         'rua', 
         'bairro',
@@ -24,14 +21,6 @@ class Adress extends Model
         'estado',
         'client_id'
     ];
-
-    // public function client() {
-    //     return $this->hasMany('App\Models\Client');
-    // }
-
-    // public function client() {
-    //     return $this->belongsTo('App\Models\Client');
-    // }
 
     public function client() {
         return $this->belongsTo('App\Models\Client');

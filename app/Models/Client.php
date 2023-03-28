@@ -13,26 +13,13 @@ class Client extends Model
     use HasFactory;
 
     public $timestamps = false;
-    
+    protected $products = [];
     protected $dates = ['date'];
-
-
     protected $fillable = [
         'name', 
         'email',
         'telefone'
     ];
-
-    protected $products = [];
-
-    // public function client() {
-
-    //     return $this->hasMany('App\Models\Adress');
-    // }
-
-    // public function adress() {
-    //     return $this->belongsTo('App\Models\Adress');
-    // }
 
     public function adress() {
         return $this->hasOne(Adress::class);
@@ -42,7 +29,4 @@ class Client extends Model
         return $this->hasMany(Order::class);
     }
 
-    // public function client() {
-    //     return $this->belongsTo(Client::class);
-    // }
 }

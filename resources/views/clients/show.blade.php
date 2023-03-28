@@ -29,33 +29,33 @@
         <table class="table table-hover  mt-4 mb-5">
         <thead>
             <tr>
-                <th class="table-first-id"  width="20px;" scope="col">#</th>
-                <th class="table-first" scope="col">Nome</th>
-                <th class="table-first" scope="col">Telefone</th>
-                <th class="table-first" scope="col">Email</th>
-                <th class="table-adress"  scope="col">Endereço</th>
-                <th class="table-date"   scope="col">Data:</th>
-                <th class="table-alter"   scope="col">Alterar:</th>
+                <th class="table-first-id celula-client"  width="20px;" scope="col">#</th>
+                <th class="table-first celula-client" scope="col">Nome</th>
+                <th class="table-first celula-client" scope="col">Telefone</th>
+                <th class=" celula-client" scope="col">Email</th>
+                <th class=" celula-client"  scope="col">Endereço</th>
+                <th class="table-date celula-client"   scope="col">Data:</th>
+                <th class="table-alter celula-client"   scope="col">Alterar:</th>
             </tr>
         </thead>
         <tbody>
             @foreach($clients as $client)
                 <tr>
-                    <td class="table-first-id" scope="row">{{ $loop->index + 1 }}</td>
-                    <td class="table-first">{{$client->name }}</td>
-                    <td class="table-first">{{$client->telefone }}</td>
-                    <td class="table-first">{{$client->email }}</td>
+                    <td class="table-first-id celula-client" scope="row">{{ $loop->index + 1 }}</td>
+                    <td class=" celula-client">{{$client->name }}</td>
+                    <td class="table-first celula-client">{{$client->telefone }}</td>
+                    <td class=" celula-client">{{$client->email }}</td>
                     {{-- <td>{{$client->rua }}</td> --}}
-                    <td >
+                    <td class="celula-client">
                         {{$client->adress->rua }},nº 
                         {{$client->adress->numero }}, 
                         {{$client->adress->bairro}}, 
                         {{$client->adress->cidade }}-
                         {{$client->adress->estado }} 
                     </td>
-                    <td >{{ $client->date->format('d-m-Y') }}</td>
+                    <td class="" >{{ $client->date->format('d-m-Y') }}</td>
 
-                    <td class="table-alter">
+                    <td class="table-alter ">
                         <a class="btn btn.sm btn-block btn-primary " 
                             href="/client/edit/{{$client->id}}">
                             <ion-icon name="create-outline"></ion-icon>Editar

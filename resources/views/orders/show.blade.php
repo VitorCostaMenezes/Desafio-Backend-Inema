@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Adicionar Cliente')
+@section('title', 'Gerar Pedido')
 
 @section('content')
 
@@ -18,7 +18,7 @@
           <input type="submit" class="btn btn-button btn-block btn-primary mt-2"  value="Atualizar">
       </form>
  
-  <table class="table table-hover ml-3 mt-4 mb-5">
+    <table class="table table-hover  mt-4 mb-5">
       <thead>
         <tr>
           <th class="table-first-id">#</th>
@@ -31,7 +31,6 @@
       <tbody>
 
         @foreach($orders as $order)
-
           <tr>
             <td class="table-first-id">{{$order->id}}</td>
             <td>{{$order->client->name}}</td>
@@ -43,20 +42,15 @@
               <a class="btn btn.sm  btn-primary " href="/order/{{$order->id}}"><ion-icon name="create-outline"></ion-icon>Abrir</a>
             </td>
           </tr>
-
         @endforeach    
-
       </tbody>
     </table>
-    
-
 </div>
 @else
-<p>Você não tem pedidos gerados. <a class="btn btn-button btn-sm btn-primary ml-2" href="/new_order">Gerar Novo Pedido</a></p>
+  <p>Você não tem pedidos gerados. <a class="btn btn-button btn-sm btn-primary ml-2" href="/new_order">Gerar Novo Pedido</a></p>
 @endif
 
 </div>
-
 
 @endsection
 

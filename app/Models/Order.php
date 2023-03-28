@@ -11,26 +11,16 @@ class Order extends Model
     public $timestamps = false;
 
     protected $dates = ['date'];
-
-
-
-    // const CREATED_AT = '';
-    // const UPDATED_AT = '';
-
     protected $casts = [
         'product_id' => 'array',
         'amount' => 'array',
         'valor' => 'array'
     ];
 
-
     protected $fillable = [
         'client_id', 
         'valor'
     ];
-
-
-
 
     protected $products = [];
 

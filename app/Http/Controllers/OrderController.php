@@ -16,22 +16,14 @@ class OrderController extends Controller
 {
 
     public function create(){
-        // return view('orders.create');
-
         $clients = Client::all();
-
         $products = Product::all();
-
-        // $orders = Order::all();
-
         return view('orders.create', ['clients' => $clients, 'products' => $products]);
     }
 
     public function store(Request $request) {
 
         $orders = new Order;
-        // $order_products = new Order_Product;
-
         $valor_total = 0;
 
         DB::beginTransaction();
@@ -45,10 +37,9 @@ class OrderController extends Controller
                 $valor_total +=  $product_temp->valor * $q;
                 $amount = ($product_temp->amount) - $q;
 
-
                 if($q < 1){
                     return redirect('/new_order')->with('msg-danger', 'Não foi possivel gerar o pedido. 
-                                                                A quantidade mínima de um produto selecionado não pode ser menor que 1.');
+                                                                    A quantidade mínima de um produto selecionado não pode ser menor que 1.');
                 }elseif($product_temp->amount < $q){
                     return redirect('/new_order')->with('msg-danger', 'Não foi possivel gerar o pedido. 
                                                                 A quantidade maxima do produto: "'.$product_temp->name.'", foi excedida!');
@@ -58,32 +49,21 @@ class OrderController extends Controller
                 };
 
                 }
-               
 
             $orders->valor = $valor_total;
             $orders->save();
 
-
             foreach(array_combine($product_ids, $quantidade ) as $p_id => $q){
-
                 Relation::insert(['order_id' => $orders->id,
                                         'product_id'=> $p_id,
                                         'amount' => $q]);
-            }
+                    }
 
         DB::commit();
 
         return redirect('/new_order')->with('msg', 'Pedido gerado com sucesso!');
-
     }
 
-
-    // public function show(){
-    //     $orders = Order::all();
-
-    //     return view('orders.show', ['orders' => $orders]);
-
-    // }
 
     public function show() {
 
@@ -91,7 +71,6 @@ class OrderController extends Controller
 
         if($search) {
 
-            // $client = Client::where([['name', 'like', '%'.$search.'%']])->get();
             $client = Client::where([['name', 'like', '%'.$search.'%']])->get();
 
             $orders = Order::where([
@@ -103,16 +82,12 @@ class OrderController extends Controller
         }        
     
         return view('orders.show',['orders' => $orders, 'search' => $search]);
-
     }
+
 
     public function order($id) {
-
         $order = Order::findOrFail($id);
-
         return view('orders.order', ['order' => $order ]);
-        
     }
     
-
 }

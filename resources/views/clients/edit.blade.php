@@ -79,26 +79,6 @@
     <div class="form-group ml-3">
         <input type="submit" class="btn btn-warning ml-3 mt-3" value="Atualizar Cliente">
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </form>
 </div>
 

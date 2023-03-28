@@ -11,7 +11,7 @@
     @if(count($clients) > 0)
     <div class="table-responsive">
 
-    <table class="table center">
+        <table class="table table-hover  mt-4 mb-5">
         <thead>
             <tr>
                 <th class="table-first-id"  width="20px;" scope="col">#</th>
@@ -19,6 +19,8 @@
                 <th class="table-first" scope="col">Telefone</th>
                 <th class="table-first" scope="col">Email</th>
                 <th class="table-adress"  scope="col">Endereço</th>
+                <th class="table-date"   scope="col">Cliente Desde:</th>
+                <th class="table-alter"   scope="col">Alterar:</th>
             </tr>
         </thead>
         <tbody>
@@ -36,6 +38,15 @@
                         {{$client->adress->cidade }}-
                         {{$client->adress->estado }} 
                     </td>
+                    <td >{{ $client->date->format('d-m-Y') }}</td>
+
+                    <td class="table-alter">
+                        <a class="btn btn.sm btn-block btn-primary " 
+                            href="/client/edit/{{$client->id}}">
+                            <ion-icon name="create-outline"></ion-icon>Editar
+                        </a>
+                    </td>
+
                    
                 </tr>
             @endforeach    

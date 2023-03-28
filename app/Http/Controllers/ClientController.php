@@ -12,7 +12,13 @@ use App\Models\Client;
 
 class ClientController extends Controller
 {
-    public function create(Request $request) {
+
+    public function create() {
+        return view('clients.create');
+    }
+
+
+    public function store(Request $request) {
 
         DB::beginTransaction();
 
@@ -27,10 +33,52 @@ class ClientController extends Controller
 
 
 
-    public function index(){
+    public function show(){
 
         $clients = Client::all();
         return view('clients.show', ['clients' => $clients]);
     }
+
+
+
+    public function edit($id) {
+        $client = Client::findOrFail($id);
+
+        return view('clients.edit', ['client' => $client]);
+
+    }
+
+
+
+    public function update(Request $request) {
+
+        // $dataForm = $request->all();
+        $dataForm = $request->except(['_token', '_method']);
+
+
+        
+
+        DB::beginTransaction();
+
+
+        $client = Client::find($request->id); // busca o cliente
+        if ($client) // verifica se serviço foi encontrado
+        {
+            $client->update($dataForm); // update sdo cliente
+            $client->adress->update($dataForm); // update cliente da relação
+        }
+
+
+
+            // $client = Client::findOrFail($request->id)->update($data);
+
+            // $client->adress()->update($data);
+
+        DB::commit();
+        
+        return redirect('/list_clients')->with('msg', 'Cliente editado com sucesso!');
+
+    }
+
 
 }

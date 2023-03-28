@@ -9,6 +9,8 @@ class Relation extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $dates = ['date'];
+
 
 
     protected $fillable = [
@@ -22,7 +24,7 @@ class Relation extends Model
     }
 
     public function product() {
-        return $this->belongsToMany(product::class);
+        return $this->belongsTo(Product::class);
     }
 
 }

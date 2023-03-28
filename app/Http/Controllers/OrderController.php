@@ -14,7 +14,20 @@ use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
-    public function create(Request $request) {
+
+    public function create(){
+        // return view('orders.create');
+
+        $clients = Client::all();
+
+        $products = Product::all();
+
+        // $orders = Order::all();
+
+        return view('orders.create', ['clients' => $clients, 'products' => $products]);
+    }
+
+    public function store(Request $request) {
 
         $orders = new Order;
         // $order_products = new Order_Product;
@@ -32,9 +45,20 @@ class OrderController extends Controller
                 $valor_total +=  $product_temp->valor * $q;
                 $amount = ($product_temp->amount) - $q;
 
-                Product::where('id', $p_id)
+
+                if($q < 1){
+                    return redirect('/new_order')->with('msg-danger', 'Não foi possivel gerar o pedido. 
+                                                                A quantidade mínima de um produto selecionado não pode ser menor que 1.');
+                }elseif($product_temp->amount < $q){
+                    return redirect('/new_order')->with('msg-danger', 'Não foi possivel gerar o pedido. 
+                                                                A quantidade maxima do produto: "'.$product_temp->name.'", foi excedida!');
+                }else{
+                    Product::where('id', $p_id)
                     ->update(['amount' => $amount]);
                 };
+
+                }
+               
 
             $orders->valor = $valor_total;
             $orders->save();
@@ -49,50 +73,30 @@ class OrderController extends Controller
 
         DB::commit();
 
-        return redirect('/')->with('msg', 'Cliente cadastrado com sucesso!');
-
-    }
-
-
-
-    // public function index(){
-
-    //     $clients = Client::all();
-    //     // $clients = Client::with('adresses')->get();
-    //     // $clients = Client::with('adresses')->all();
-
-    //     // $event = Event::findOrFail($id);
-    //     foreach ($clients as $client) {
-
-    //         $adress_cliente = Adress::findOrFail($client->id);
-    //         $client->adress = $adress_cliente;
-    //         // $client->rua = $adress_cliente->rua;
-    //         // $client->bairro = $adress_cliente->rua;
-    //         // $client->cidade= $adress_cliente->cidade;
-    //         // $client->numero = $adress_cliente->numero;
-    //         // $client->estado = $adress_cliente->estado;
-    //     }
-
-
-    //     return view('clients.show', ['clients' => $clients]);
-    // }
-
-
-    public function countOrders(){
+        return redirect('/orders/show')->with('msg', 'Pedido gerado com sucesso!');
 
     }
 
 
     public function show(){
-
-        $clients = Client::all();
-
-        $products = Product::all();
-
         $orders = Order::all();
 
+        return view('orders.show', ['orders' => $orders]);
 
-        return view('orders.show', ['clients' => $clients, 'products' => $products, 'orders' => $orders]);
     }
+
+    public function order($id) {
+
+        $order = Order::findOrFail($id);
+
+        return view('orders.order', ['order' => $order ]);
+
+
+        
+    }
+    
+
+
+
 
 }

@@ -9,6 +9,10 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'amount'
+    ];
+
     public $timestamps = false;
 
     protected $products = [];

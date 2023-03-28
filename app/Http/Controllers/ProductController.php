@@ -37,20 +37,38 @@ class ProductController extends Controller
             $products->image = $imageName;
 
         }else {
-            return redirect('/')->with('msg', 'Formato de imagem inválido!');
+            return redirect('/new_product')->with('msg-danger', 'Formato de imagem inválido, ou arquivo ausente!');
 
         }
 
             $products->save();
 
-        return redirect('/')->with('msg', 'Produto cadastrado com sucesso!');
+        return redirect('/list_products')->with('msg', 'Produto cadastrado com sucesso!');
 
     }
 
 
-    public function show(){
-        $products= Product::all();
-        return view('products.show', ['products' => $products]);
+    // public function show(){
+    //     $products = Product::all();
+    //     return view('products.show', ['products' => $products]);
+    // }
+
+    public function show() {
+
+        $search = request('search');
+
+        if($search) {
+
+            $products = Product::where([
+                ['name', 'like', '%'.$search.'%']
+            ])->get();
+
+        } else {
+            $products = Product::all();
+        }        
+    
+        return view('products.show',['products' => $products, 'search' => $search]);
+
     }
 
 

@@ -17,12 +17,20 @@ class ClientController extends Controller
 
     public function store(Request $request) {
 
-        DB::beginTransaction();
-            $client = Client::create($request->all());
-            $client->adress()->create($request->all());
-        DB::commit();
+        if (Client::where('name', $request->name)->count() == 0) {
 
-        return redirect('/list_clients')->with('msg', 'Cliente cadastrado com sucesso!');
+            DB::beginTransaction();
+                $client = Client::create($request->all());
+                $client->adress()->create($request->all());
+            DB::commit();
+
+             return redirect('/list_clients')->with('msg', 'Cliente cadastrado com sucesso!');
+        
+        }else{
+            return redirect('/list_clients')->with('msg-danger', 'Erro ao cadastrar o cliente. O nome utilizado já existe na base de dados!');
+
+        }
+
     }
 
     public function show() {

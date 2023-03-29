@@ -5,7 +5,7 @@
 @section('content')
 
 <div id="event-create-container" class="col-md-6 offset-md-3">
-  <h1>Adicionar Cliente</h1>
+  <h1>Cadastrar Cliente</h1>
   <form action="/save_client" method="POST" enctype="multipart/form-data">
     @csrf
     <h5 class="mb-2 mt-4">Informações pessoais:</h5>

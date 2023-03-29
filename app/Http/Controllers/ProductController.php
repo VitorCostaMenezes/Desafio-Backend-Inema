@@ -19,29 +19,36 @@ class ProductController extends Controller
 
     public function store(Request $request) {
 
-        $products = new Product;
 
-        $products->name = $request->name;
-        $products->amount = $request->amount;
-        $products->valor = $request->valor;
-        $products->description = $request->description;
+        if (Product::where('name', $request->name)->count() == 0) {
 
-        if($request->hasFile('image') && $request->file('image')->isValid()) {
+            $products = new Product;
 
-            $requestImage = $request->image;
-            $extension = $requestImage->extension();
-            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
-            $requestImage->move(public_path('img/products'), $imageName);
-            $products->image = $imageName;
-
-        }else {
-            return redirect('/new_product')->with('msg-danger', 'Formato de imagem inválido, ou arquivo ausente!');
+            $products->name = $request->name;
+            $products->amount = $request->amount;
+            $products->valor = $request->valor;
+            $products->description = $request->description;
+    
+            if($request->hasFile('image') && $request->file('image')->isValid()) {
+    
+                $requestImage = $request->image;
+                $extension = $requestImage->extension();
+                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+                $requestImage->move(public_path('img/products'), $imageName);
+                $products->image = $imageName;
+    
+            }else {
+                return redirect('/new_product')->with('msg-danger', 'Formato de imagem inválido, ou arquivo ausente!');
+            }
+    
+                $products->save();
+    
+            return redirect('/list_products')->with('msg', 'Produto cadastrado com sucesso!');
+        
+        }else{
+            return redirect('/list_clients')->with('msg-danger', 'Erro ao cadastrar o Produto. O nome utilizado já existe na base de dados!');
 
         }
-
-            $products->save();
-
-        return redirect('/list_products')->with('msg', 'Produto cadastrado com sucesso!');
 
     }
 

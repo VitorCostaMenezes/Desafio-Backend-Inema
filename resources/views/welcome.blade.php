@@ -6,13 +6,13 @@
 
 
 <div class="container ">
-    <div class="row mt-4">
+    <div class="row mt-3">
         <div class="col-12">
             <h1 class="display-3 text-secondary text-center">Gestão de Pedidos</h1>
         </div>
     </div>
     
-    <div class="row text-secondary mt-4">
+    <div class="row text-secondary mt-3">
         <div class="col-sm-12 col-md-4">
           <div class="card">
             <div class="card-body">

@@ -35,7 +35,7 @@ class AddListOrderTest extends DuskTestCase
       public function check_if_update_amount_product_function_is_working()
       {
           $this->browse(function (Browser $browser) {
-              $browser->visit('/order/1')
+              $browser->visit('/order/2')
                      ->assertSee('Detalhes do Pedido');
                      
           });

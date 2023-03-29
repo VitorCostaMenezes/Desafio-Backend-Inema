@@ -1,28 +1,7 @@
-php artisan serve --port=9000
-
-
-
-
-
-
-
-criação de tabela de migration
-
-php artisan make:migration create_products_table
-
-
-
-
-
 composer install
-
-npm install
 
 php artisan migrate
 
-
-
 php artisan key:generate
 
-
-php artisan serve
+php artisan serve ou php artisan serve --port=9000

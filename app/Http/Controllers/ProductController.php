@@ -19,7 +19,7 @@ class ProductController extends Controller
 
     public function store(Request $request) {
 
-
+        //verifica se o nome do produto ja exite no banco, caso não encontre nenhum reistro segue com o insert
         if (Product::where('name', $request->name)->count() == 0) {
 
             $products = new Product;
@@ -28,7 +28,7 @@ class ProductController extends Controller
             $products->amount = $request->amount;
             $products->valor = $request->valor;
             $products->description = $request->description;
-    
+            //verifica se o arquivo de imagem é válido
             if($request->hasFile('image') && $request->file('image')->isValid()) {
     
                 $requestImage = $request->image;
@@ -56,7 +56,8 @@ class ProductController extends Controller
     public function show() {
 
         $search = request('search');
-
+            //Se houver pesquisa na página de listagem dos produtos 
+            //Exibe os  produtos com base na pesquisa do nome
         if($search) {
             $products = Product::where([
                 ['name', 'like', '%'.$search.'%']
@@ -64,13 +65,14 @@ class ProductController extends Controller
         } else {
             $products = Product::all();
         }        
-    
+        //se não houver neuma pesquisa é retornado todas as linhas inseridas
         return view('products.show',['products' => $products, 'search' => $search]);
 
     }
 
 
     public function edit($id) {
+        // verifica se existe um produto com o mesmo no banco e repassa para o edit de produtos
         $product = Product::findOrFail($id);
         return view('products.edit', ['product' => $product]);
     }

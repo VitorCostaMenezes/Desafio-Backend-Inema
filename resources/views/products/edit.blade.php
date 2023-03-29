@@ -6,6 +6,7 @@
 
 <div id="event-create-container" class="col-md-6 offset-md-3">
   <h1>Editando: {{ $product->name}}</h1>
+  <h3 class="text-danger">Esta funcionalidade está apresentando inconsistência.</h3>
 
   <form action="/estoque/update/{{ $product->id }}" method="POST" enctype="multipart/form-data" class="mt-4">
     @csrf

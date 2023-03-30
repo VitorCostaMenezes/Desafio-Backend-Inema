@@ -82,14 +82,12 @@ class ProductController extends Controller
 
         $data = $request->all();
 
-        DB::beginTransaction();
             if($request->amount > 0 ) {
                 $product = Product::findOrFail($request->id)->update($data);
                 return redirect('/list_products')->with('msg', 'Estoque atualizado com sucesso!');
             }else{
                 return redirect('/list_products')->with('msg-danger', 'O estoque não foi atualizado!');
             }
-        DB::commit();
 
     }
     
